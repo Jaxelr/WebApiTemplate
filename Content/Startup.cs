@@ -10,6 +10,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Linq;
+using WebApiTemplate.Repositories;
 
 namespace WebApiTemplate
 {
@@ -59,6 +60,9 @@ namespace WebApiTemplate
             {
                 c.SwaggerDoc(Version, new OpenApiInfo { Title = ServiceName, Version = Version });
             });
+
+            //Your custom classes go here.
+            services.AddTransient<IRepository, Repository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
