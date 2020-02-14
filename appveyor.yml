@@ -9,6 +9,8 @@ before_build:
   - cmd: dotnet --version
 build_script:
   - cmd: dotnet publish ./Content/WebApiTemplate.sln -v quiet
+after_build:
+  - cmd: nuget pack -verbosity quiet  
 artifacts:
   - path: '**/*.nupkg'
 skip_commits:

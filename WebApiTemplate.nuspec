@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>WebApiTemplate</id>
+    <version>1.0.0</version>
+    <title>dotnet web api template</title>
+    <description>A minimal alternative webapi template using Asp.Net Core 3+</description>
+    <authors>Jaxel Rojas</authors>
+    <owners>Jaxel Rojas</owners>
+    <projectUrl>https://github.com/Jaxelr/WebApiTemplate</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>2020</copyright>
+    <tags>template;web;api</tags>
+    <language>en-US</language>
+    <license type="expression">MIT</license>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+  </metadata>
+  <files>
+    <file src="Content\**" exclude="**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\node_modules\**;**\.vscode\**;*.gitkeep" target="content"/>
+  </files>
+</package>
