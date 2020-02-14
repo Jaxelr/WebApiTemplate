@@ -1,0 +1,27 @@
+version: '0.{build}'
+image: Visual Studio 2019
+branches:
+  only:
+  - master
+init:
+  - cmd: git config --global core.autocrlf true
+before_build:
+  - cmd: dotnet --version
+build_script:
+  - cmd: dotnet publish ./Content/WebApiTemplate.sln -v quiet
+after_build:
+  - cmd: nuget pack -verbosity quiet
+artifacts:
+  - path: '**/*.nupkg'
+skip_commits:
+  files:
+    - '**/*.md'
+deploy:
+- provider: NuGet
+  server: https://www.myget.org/F/webapitemplate/api/v3/index.json
+  on:
+    branch: master  
+    appveyor_repo_tag: true    
+  api_key:
+    secure: 6xhHSsDvB9arsrSDLuynnbxaVS+BwaoJU96RfQenc5FOnUYvP8SHM6kbvrmpvja2
+  skip_symbols: true
