@@ -1,5 +1,7 @@
 # WebApiTemplate
 
+[![Build status](https://ci.appveyor.com/api/projects/status/x201qsq5f3lwfll9?svg=true)](https://ci.appveyor.com/project/Jaxelr/webapitemplate)
+
 This template was created in order to facilitate the creation of a Web Api service.
 
 ## Configurations
