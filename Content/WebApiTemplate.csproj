@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Authors>Jaxel Rojas</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IsPackable>true</IsPackable>
     <Copyright>2020</Copyright>
     <Description>Web Api Template including goodies.</Description>
     <PackageTags>web api</PackageTags>
