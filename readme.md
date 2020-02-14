@@ -1,6 +1,6 @@
 # WebApiTemplate
 
-[![Build status](https://ci.appveyor.com/api/projects/status/x201qsq5f3lwfll9?svg=true)](https://ci.appveyor.com/project/Jaxelr/webapitemplate)
+[![Build status](https://ci.appveyor.com/api/projects/status/x201qsq5f3lwfll9?svg=true)](https://ci.appveyor.com/project/Jaxelr/webapitemplate) ![MyGet](https://img.shields.io/myget/webapitemplate/v/WebApiTemplate?style=flat)
 
 This template was created in order to facilitate the creation of a Web Api service.
 
