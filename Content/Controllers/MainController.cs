@@ -30,6 +30,7 @@ namespace WebApiTemplate.Controllers
         }
 
         [HttpGet]
+        [Route("{name}")]
         public async Task<string> Get(string name)
         {
             logger.Log(LogLevel.Information, "Just logging some execution here.");
