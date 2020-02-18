@@ -18,9 +18,6 @@ namespace WebApiTemplate
     {
         private IConfiguration Configuration { get; }
         private readonly AppSettings settings;
-        private const string AuthenticationName = "Bearer";
-        private const string ServiceName = "WebApiTemplate";
-        private const string Version = "v1";
 
         public Startup(IWebHostEnvironment env)
         {
@@ -40,25 +37,41 @@ namespace WebApiTemplate
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(settings.Policy,
+                builder =>
+                {
+                    builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+                });
+            });
+
             //HealthChecks
             services.AddHealthChecks();
 
             services.AddControllers();
 
             services.AddAuthorization();
-            services.AddAuthentication(AuthenticationName)
-                .AddJwtBearer(AuthenticationName, options =>
+            services.AddAuthentication(settings.AuthenticationName)
+                .AddJwtBearer(settings.AuthenticationName, options =>
                 {
                     options.Authority = settings.AuthorizationServer;
                     options.RequireHttpsMetadata = false;
-                    options.Audience = ServiceName;
+                    options.Audience = settings.ServiceName;
                 });
 
             services.AddLogging();
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc(Version, new OpenApiInfo { Title = ServiceName, Version = Version });
+                c.SwaggerDoc(settings.Version, new OpenApiInfo
+                {
+                    Title = settings.ServiceName,
+                    Version = settings.Version
+                });
             });
 
             //Your custom classes go here.
@@ -78,6 +91,7 @@ namespace WebApiTemplate
                 app.UseHttpsRedirection();
             }
 
+            app.UseCors(settings.Policy);
             app.UseRouting();
 
             app.UseAuthentication();
@@ -97,7 +111,7 @@ namespace WebApiTemplate
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("swagger/v1/swagger.json", $"{ServiceName} API ({Version})");
+                c.SwaggerEndpoint("swagger/v1/swagger.json", $"{settings.ServiceName} API ({settings.Version})");
                 c.RoutePrefix = string.Empty;
             });
         }
