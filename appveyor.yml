@@ -10,7 +10,7 @@ before_build:
 build_script:
   - cmd: dotnet publish ./Content/WebApiTemplate.sln -v quiet
 after_build:
-  - cmd: nuget pack -verbosity quiet  
+  - cmd: nuget pack -verbosity quiet
 artifacts:
   - path: '**/*.nupkg'
 skip_commits:
@@ -20,8 +20,7 @@ deploy:
 - provider: NuGet
   server: https://www.myget.org/F/webapitemplate/api/v2/package
   on:
-    branch: master  
-    appveyor_repo_tag: true
+    branch: master
   api_key:
     secure: 6xhHSsDvB9arsrSDLuynnbxaVS+BwaoJU96RfQenc5FOnUYvP8SHM6kbvrmpvja2
   skip_symbols: true
