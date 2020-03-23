@@ -6,7 +6,6 @@
     <title>dotnet web api template</title>
     <description>A minimal alternative webapi template using Asp.Net Core 3+</description>
     <authors>Jaxel Rojas</authors>
-    <owners>Jaxel Rojas</owners>
     <projectUrl>https://github.com/Jaxelr/WebApiTemplate</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <copyright>2020</copyright>
