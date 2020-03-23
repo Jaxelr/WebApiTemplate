@@ -12,11 +12,8 @@ namespace WebApiTemplate.Controllers
         private readonly ILogger<MainController> logger;
         private readonly IRepository repository;
 
-        public MainController(ILogger<MainController> logger, IRepository repository)
-        {
-            this.logger = logger;
-            this.repository = repository;
-        }
+        public MainController(ILogger<MainController> logger, IRepository repository) =>
+            (this.logger, this.repository) = (logger, repository);
 
         [HttpGet]
         public async Task<string> Get()
