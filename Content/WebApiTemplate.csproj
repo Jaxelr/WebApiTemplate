@@ -14,5 +14,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
   </ItemGroup>
 </Project>

@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Linq;
 using WebApiTemplate.Repositories;
+using System.Data.SqlClient;
 
 namespace WebApiTemplate
 {
@@ -75,7 +76,9 @@ namespace WebApiTemplate
             });
 
             //Your custom classes go here.
-            services.AddTransient<IRepository, Repository>();
+            services.AddSingleton(settings);
+            services.AddSingleton(new SqlConnection(settings.ConnectionString));
+            services.AddSingleton<IRepository>(provider => new Repository(provider.GetService<SqlConnection>()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
