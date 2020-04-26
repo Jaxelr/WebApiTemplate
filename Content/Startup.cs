@@ -1,5 +1,5 @@
+using System.Data.SqlClient;
 using System.Threading.Tasks;
-using WebApiTemplate.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
@@ -8,10 +8,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Linq;
+using WebApiTemplate.Models;
 using WebApiTemplate.Repositories;
-using System.Data.SqlClient;
 
 namespace WebApiTemplate
 {
@@ -25,7 +26,7 @@ namespace WebApiTemplate
             var builder = new ConfigurationBuilder()
                             .SetBasePath(env.ContentRootPath)
                             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
                             .AddEnvironmentVariables();
 
             Configuration = builder.Build();
@@ -64,7 +65,12 @@ namespace WebApiTemplate
                     options.Audience = settings.ServiceName;
                 });
 
-            services.AddLogging();
+            services.AddLogging(opt =>
+            {
+                opt.AddConsole();
+                opt.AddDebug();
+                opt.AddConfiguration(Configuration.GetSection("Logging"));
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -76,7 +82,7 @@ namespace WebApiTemplate
             });
 
             //Your custom classes go here.
-            services.AddSingleton(settings);
+            services.AddSingleton(settings); //typeof(AppSettings)
             services.AddSingleton(new SqlConnection(settings.ConnectionString));
             services.AddSingleton<IRepository>(provider => new Repository(provider.GetService<SqlConnection>()));
         }
