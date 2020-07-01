@@ -14,6 +14,14 @@ For installation, run:
 
 Currently it lives on the myget source only.
 
+## Usage
+
+For usage, run:
+
+`dotnet new wbapi -o ProjectName`
+
+Where Projectname is the name given to the api solution.
+
 ## Configurations
 
 The `appsettings.json` file includes following configurable props:
