@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>WebApiTemplate</id>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <title>dotnet web api template</title>
     <description>A minimal alternative webapi template using Asp.Net Core 3+</description>
     <authors>Jaxel Rojas</authors>
