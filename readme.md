@@ -2,7 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/x201qsq5f3lwfll9?svg=true)](https://ci.appveyor.com/project/Jaxelr/webapitemplate) ![MyGet](https://img.shields.io/myget/webapitemplate/v/WebApiTemplate?style=flat)
 
-This template was created in order to facilitate the creation of a Web Api service.
+This template was created in order to facilitate the creation of a dotnet WebApi services, using common dependencies outside of the basic dotnet new webapi template.
 
 ## Installation
 
@@ -26,7 +26,7 @@ Where Projectname is the name given to the api solution.
 
 The `appsettings.json` file includes following configurable props:
 
-* AuthorizationServer - used to configure the Authorization server were the service will revise the token / scope information.
+* AuthorizationServer - used to configure the Authorization server were the service will revise the token / scope information. 
 * ConnectrionString - used to map from a config file into the startup class the connection information needed to connect to a SQL database.
 
 ### Swagger
@@ -40,3 +40,10 @@ Usage of the Diagnostics.HealthChecks library is pointing to the `/healthcheck` 
 ### Uninstallation
 
 `dotnet new -u WebApiTemplate`
+
+### Dependencies
+
+The following nuget libraries are included:
+
+- [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
+- [Dapper](https://github.com/StackExchange/Dapper)
