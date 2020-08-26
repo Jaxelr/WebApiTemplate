@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageType>Template</PackageType>
+    <IsPackable>true</IsPackable>
+    <Version>1.0.9</Version>
+    <PackageId>WebApiTemplate</PackageId>
+    <PackageCopyright>2020</PackageCopyright>
+    <Title>Dotnet Web Api Template</Title>
+    <Authors>Jaxel Rojas</Authors>
+    <Description>A minimal alternative webapi template using Asp.Net Core 3+</Description>
+    <PackageTags>template;web;api</PackageTags>
+    <PackageProjectUrl>https://github.com/Jaxelr/WebApiTemplate</PackageProjectUrl>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>Content</ContentTargetFolders>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <NoWarn>NU5128</NoWarn>
+    <PackageReleaseNotes>Initial library</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Content\**" Exclude="**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\*.lock.json;**\node_modules\**;**\.vscode\**;*.gitkeep" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+</Project>

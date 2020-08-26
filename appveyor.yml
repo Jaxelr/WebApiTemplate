@@ -5,12 +5,16 @@ branches:
   - master
 init:
   - cmd: git config --global core.autocrlf true
+configuration:
+  - Release
+nuget:
+  disable_publish_on_pr: true
 before_build:
   - cmd: dotnet --version
 build_script:
   - cmd: dotnet publish ./Content/WebApiTemplate.sln -v quiet
 after_build:
-  - cmd: nuget pack -verbosity quiet
+  - cmd: dotnet pack -v quiet WebApiTemplate.Project.Template.csproj
 artifacts:
   - path: '**/*.nupkg'
 skip_commits:
