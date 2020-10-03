@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Linq;
+using WebApiTemplate.Middlewares;
 using WebApiTemplate.Models;
 using WebApiTemplate.Repositories;
 
@@ -105,6 +106,8 @@ namespace WebApiTemplate
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseMiddleware<ErrorHandlingMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
