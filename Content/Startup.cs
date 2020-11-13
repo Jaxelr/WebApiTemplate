@@ -1,16 +1,13 @@
 using System.Data.SqlClient;
-using System.Threading.Tasks;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Newtonsoft.Json.Linq;
 using WebApiTemplate.Middlewares;
 using WebApiTemplate.Models;
 using WebApiTemplate.Repositories;
@@ -114,9 +111,9 @@ namespace WebApiTemplate
                 endpoints.MapControllers();
             });
 
-            app.UseHealthChecks("/healthcheck", new HealthCheckOptions()
+            app.UseHealthChecks("/health", new HealthCheckOptions()
             {
-                ResponseWriter = WriteResponse
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             });
 
             app.UseSwagger();
@@ -126,19 +123,6 @@ namespace WebApiTemplate
                 c.SwaggerEndpoint("swagger/v1/swagger.json", $"{settings.ServiceName} API ({settings.Version})");
                 c.RoutePrefix = string.Empty;
             });
-        }
-
-        private static Task WriteResponse(HttpContext context, HealthReport report)
-        {
-            context.Response.ContentType = "application/json";
-
-            var json = new JObject(
-                        new JProperty("statusCode", report.Status),
-                        new JProperty("status", report.Status.ToString()),
-                        new JProperty("timelapsed", report.TotalDuration)
-                );
-
-            return context.Response.WriteAsync(json.ToString(Newtonsoft.Json.Formatting.Indented));
         }
     }
 }
