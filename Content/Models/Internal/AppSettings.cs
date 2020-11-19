@@ -8,5 +8,6 @@
         public string ServiceName { get; set; }
         public string Version { get; set; }
         public string Policy { get; set; }
+        public HealthDefinition HealthDefinition { get; set; }
     }
 }

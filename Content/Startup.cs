@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
@@ -50,10 +51,12 @@ namespace WebApiTemplate
             });
 
             //HealthChecks
-            services.AddHealthChecks();
+            services.AddHealthChecks()
+                .AddCheck(settings.HealthDefinition.Name, () => HealthCheckResult.Healthy(settings.HealthDefinition.HealthyMessage), tags: settings.HealthDefinition.Tags);
 
             services.AddControllers();
 
+#if !DEBUG
             services.AddAuthorization();
             services.AddAuthentication(settings.AuthenticationName)
                 .AddJwtBearer(settings.AuthenticationName, options =>
@@ -62,7 +65,7 @@ namespace WebApiTemplate
                     options.RequireHttpsMetadata = false;
                     options.Audience = settings.ServiceName;
                 });
-
+#endif
             services.AddLogging(opt =>
             {
                 opt.AddConsole();
@@ -111,7 +114,7 @@ namespace WebApiTemplate
                 endpoints.MapControllers();
             });
 
-            app.UseHealthChecks("/health", new HealthCheckOptions()
+            app.UseHealthChecks(settings.HealthDefinition.Endpoint, new HealthCheckOptions()
             {
                 ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             });
