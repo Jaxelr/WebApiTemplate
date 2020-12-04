@@ -1,16 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageType>Template</PackageType>
     <IsPackable>true</IsPackable>
-    <Version>1.0.16</Version>
+    <Version>1.1.0</Version>
     <PackageId>WebApiTemplate</PackageId>
     <PackageCopyright>2020</PackageCopyright>
     <Title>Dotnet Web Api Template</Title>
     <Authors>Jaxel Rojas</Authors>
-    <Description>A minimal alternative webapi template using Asp.Net Core 3.1</Description>
+    <Description>A minimal alternative webapi template using Asp.Net 5</Description>
     <PackageTags>template;web;api</PackageTags>
     <PackageProjectUrl>https://github.com/Jaxelr/WebApiTemplate</PackageProjectUrl>
     <IncludeContentInPack>true</IncludeContentInPack>
