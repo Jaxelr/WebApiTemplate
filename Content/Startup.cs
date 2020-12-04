@@ -109,10 +109,7 @@ namespace WebApiTemplate
 
             app.UseMiddleware<ErrorHandlingMiddleware>();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
 
             app.UseHealthChecks(settings.HealthDefinition.Endpoint, new HealthCheckOptions()
             {
