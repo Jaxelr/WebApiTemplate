@@ -35,7 +35,7 @@ By default the swagger implementation follows the convention of `swagger/v1/swag
 
 ### HealthCheck
 
-Usage of the Diagnostics.HealthChecks library is pointing to the `/healthcheck` url and it contains a very basic validation of uptime, that returns a json indicating the app is healthy.
+Usage of the Diagnostics.HealthChecks library is pointing to the `/health` url and it contains a very basic validation of uptime, that returns a json indicating the app is healthy.
 
 ### Uninstallation
 
