@@ -20,20 +20,18 @@ namespace WebApiTemplate.Controllers
         {
             const string message = "Hello world";
 
-            logger.Log(LogLevel.Information, "Just logging some execution here.");
+            logger.LogInformation("Just logging some execution here.");
 
-            return await Task.FromResult(message)
-                .ConfigureAwait(false);
+            return await Task.FromResult(message);
         }
 
         [HttpGet]
         [Route("{name}")]
         public async Task<string> Get(string name)
         {
-            logger.Log(LogLevel.Information, "Just logging some execution here.");
+            logger.LogInformation("Just logging some execution here.");
 
-            return await Task.FromResult(repository.MakeHello(name))
-                .ConfigureAwait(false);
+            return await Task.FromResult(repository.MakeHello(name));
         }
     }
 }
