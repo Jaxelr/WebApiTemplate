@@ -12,9 +12,9 @@ nuget:
 before_build:
   - cmd: dotnet --version
 build_script:
-  - cmd: dotnet publish ./Content/WebApiTemplate.sln -v quiet
+  - cmd: dotnet publish ./Content/WebApiTemplate.sln
 after_build:
-  - cmd: dotnet pack -v quiet WebApiTemplate.Project.Template.csproj
+  - cmd: dotnet pack WebApiTemplate.Project.Template.csproj
 artifacts:
   - path: '**/*.nupkg'
 skip_commits:
