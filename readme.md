@@ -8,11 +8,21 @@ This template was created in order to facilitate the creation of a dotnet WebApi
 
 Make sure the dotnetcore sdk is installed by running `dotnet --version` on a console.
 
-For installation, run:
+For installation of latest version, run:
 
 `dotnet new -i  "WebApiTemplate::*" --nuget-source https://www.myget.org/F/webapitemplate/api/v3/index.json`
 
 Currently it lives on the myget source only.
+
+### Previous versions
+
+For templates targeting previous versions of dotnet use the version number instead of `*` on the installation command:
+
+| dotnet version | template version |
+| -- | -- |
+| 6.0 | latest |
+| 5.0 | 1.2.2 |
+| 3.1 | 1.0.16 |
 
 ## Usage
 
@@ -47,3 +57,4 @@ The following nuget libraries are included:
 
 - [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 - [Dapper](https://github.com/StackExchange/Dapper)
+- [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks)
