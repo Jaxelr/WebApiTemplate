@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageType>Template</PackageType>
     <IsPackable>true</IsPackable>
@@ -10,7 +10,7 @@
     <PackageCopyright>2021</PackageCopyright>
     <Title>Dotnet Web Api Template</Title>
     <Authors>Jaxel Rojas</Authors>
-    <Description>A minimal alternative webapi template using Asp.Net 5</Description>
+    <Description>A minimal webapi template with controllers using Asp.Net 6</Description>
     <PackageTags>template;web;api</PackageTags>
     <PackageProjectUrl>https://github.com/Jaxelr/WebApiTemplate</PackageProjectUrl>
     <IncludeContentInPack>true</IncludeContentInPack>
@@ -18,7 +18,7 @@
     <ContentTargetFolders>Content</ContentTargetFolders>
     <NoDefaultExcludes>true</NoDefaultExcludes>
     <NoWarn>NU5128</NoWarn>
-    <PackageReleaseNotes>Upgrading to latest versions</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgrade to Dotnet 6</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
