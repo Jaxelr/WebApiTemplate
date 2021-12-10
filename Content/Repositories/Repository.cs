@@ -1,16 +1,15 @@
 ﻿using System.Data.Common;
 
-namespace WebApiTemplate.Repositories
+namespace WebApiTemplate.Repositories;
+
+public class Repository : IRepository
 {
-    public class Repository : IRepository
+    private readonly DbConnection connection;
+
+    public Repository(DbConnection connection)
     {
-        private readonly DbConnection connection;
-
-        public Repository(DbConnection connection)
-        {
-            this.connection = connection;
-        }
-
-        public string MakeHello(string name) => $"Hello world: {name}";
+        this.connection = connection;
     }
+
+    public string MakeHello(string name) => $"Hello world: {name}";
 }

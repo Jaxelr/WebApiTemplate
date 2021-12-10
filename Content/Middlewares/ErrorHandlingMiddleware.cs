@@ -6,53 +6,53 @@ using Microsoft.AspNetCore.Http;
 using WebApiTemplate.Exceptions;
 using WebApiTemplate.Models;
 
-namespace WebApiTemplate.Middlewares
+namespace WebApiTemplate.Middlewares;
+
+public class ErrorHandlingMiddleware
 {
-    public class ErrorHandlingMiddleware
+    private readonly RequestDelegate next;
+    private const string ContentTypeJson = "application/json";
+
+    public ErrorHandlingMiddleware(RequestDelegate next)
     {
-        private readonly RequestDelegate next;
+        this.next = next;
+    }
 
-        public ErrorHandlingMiddleware(RequestDelegate next)
+    public async Task Invoke(HttpContext context)
+    {
+        try
         {
-            this.next = next;
+            await next(context);
+        }
+        catch (Exception ex)
+        {
+            await HandleExceptionAsync(context, ex);
+        }
+    }
+
+    private static Task HandleExceptionAsync(HttpContext context, Exception exception)
+    {
+        HttpStatusCode status;
+
+        var exceptionType = exception.GetType();
+        if (exceptionType == typeof(BadRequestException))
+        {
+            status = HttpStatusCode.BadRequest;
+        }
+        else if (exceptionType == typeof(NotFoundException))
+        {
+            status = HttpStatusCode.NotFound;
+        }
+        else
+        {
+            status = HttpStatusCode.InternalServerError;
         }
 
-        public async Task Invoke(HttpContext context)
-        {
-            try
-            {
-                await next(context);
-            }
-            catch (Exception ex)
-            {
-                await HandleExceptionAsync(context, ex);
-            }
-        }
+        var failedResponse = new FailedResponse(exception);
 
-        private static Task HandleExceptionAsync(HttpContext context, Exception exception)
-        {
-            HttpStatusCode status;
-
-            var exceptionType = exception.GetType();
-            if (exceptionType == typeof(BadRequestException))
-            {
-                status = HttpStatusCode.BadRequest;
-            }
-            else if (exceptionType == typeof(NotFoundException))
-            {
-                status = HttpStatusCode.NotFound;
-            }
-            else
-            {
-                status = HttpStatusCode.InternalServerError;
-            }
-
-            var failedResponse = new FailedResponse(exception);
-
-            string result = JsonSerializer.Serialize(failedResponse);
-            context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int) status;
-            return context.Response.WriteAsync(result);
-        }
+        string result = JsonSerializer.Serialize(failedResponse);
+        context.Response.ContentType = ContentTypeJson;
+        context.Response.StatusCode = (int) status;
+        return context.Response.WriteAsync(result);
     }
 }

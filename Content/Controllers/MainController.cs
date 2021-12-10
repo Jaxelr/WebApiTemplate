@@ -3,35 +3,34 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApiTemplate.Repositories;
 
-namespace WebApiTemplate.Controllers
+namespace WebApiTemplate.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class MainController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class MainController : ControllerBase
+    private readonly ILogger<MainController> logger;
+    private readonly IRepository repository;
+
+    public MainController(ILogger<MainController> logger, IRepository repository) =>
+        (this.logger, this.repository) = (logger, repository);
+
+    [HttpGet]
+    public async Task<string> Get()
     {
-        private readonly ILogger<MainController> logger;
-        private readonly IRepository repository;
+        const string message = "Hello world";
 
-        public MainController(ILogger<MainController> logger, IRepository repository) =>
-            (this.logger, this.repository) = (logger, repository);
+        logger.LogInformation("Just logging some execution here.");
 
-        [HttpGet]
-        public async Task<string> Get()
-        {
-            const string message = "Hello world";
+        return await Task.FromResult(message);
+    }
 
-            logger.LogInformation("Just logging some execution here.");
+    [HttpGet]
+    [Route("{name}")]
+    public async Task<string> Get(string name)
+    {
+        logger.LogInformation("Just logging some execution here.");
 
-            return await Task.FromResult(message);
-        }
-
-        [HttpGet]
-        [Route("{name}")]
-        public async Task<string> Get(string name)
-        {
-            logger.LogInformation("Just logging some execution here.");
-
-            return await Task.FromResult(repository.MakeHello(name));
-        }
+        return await Task.FromResult(repository.MakeHello(name));
     }
 }

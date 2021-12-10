@@ -1,7 +1,6 @@
-﻿namespace WebApiTemplate.Repositories
+﻿namespace WebApiTemplate.Repositories;
+
+public interface IRepository
 {
-    public interface IRepository
-    {
-        string MakeHello(string name);
-    }
+    string MakeHello(string name);
 }

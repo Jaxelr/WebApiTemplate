@@ -1,10 +1,9 @@
-﻿namespace WebApiTemplate.Models
+﻿namespace WebApiTemplate.Models;
+
+public class HealthDefinition
 {
-    public class HealthDefinition
-    {
-        public string Endpoint { get; set; }
-        public string Name { get; set; }
-        public string HealthyMessage { get; set; }
-        public string[] Tags { get; set; }
-    }
+    public string Endpoint { get; set; }
+    public string Name { get; set; }
+    public string HealthyMessage { get; set; }
+    public string[] Tags { get; set; }
 }
