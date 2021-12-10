@@ -104,4 +104,4 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = string.Empty;
 });
 
-app.Run();
+await app.RunAsync();

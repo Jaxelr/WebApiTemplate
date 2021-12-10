@@ -30,7 +30,7 @@ public class ErrorHandlingMiddleware
         }
     }
 
-    private static Task HandleExceptionAsync(HttpContext context, Exception exception)
+    private static async Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
         HttpStatusCode status;
 
@@ -49,10 +49,10 @@ public class ErrorHandlingMiddleware
         }
 
         var failedResponse = new FailedResponse(exception);
-
         string result = JsonSerializer.Serialize(failedResponse);
         context.Response.ContentType = ContentTypeJson;
         context.Response.StatusCode = (int) status;
-        return context.Response.WriteAsync(result);
+        await context.Response.WriteAsync(result);
+        return;
     }
 }
