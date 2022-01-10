@@ -1,6 +1,6 @@
 ﻿namespace WebApiTemplate.Models;
 
-public class HealthDefinition
+public record HealthDefinition
 {
     public string Endpoint { get; set; }
     public string Name { get; set; }
