@@ -1,29 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageType>Template</PackageType>
-    <IsPackable>true</IsPackable>
-    <Version>1.3.6</Version>
-    <PackageId>WebApiTemplate</PackageId>
-    <PackageCopyright>2022</PackageCopyright>
-    <Title>Dotnet Web Api Template</Title>
-    <Authors>Jaxel Rojas</Authors>
-    <Description>A minimal webapi template with controllers using Asp.Net 6</Description>
-    <PackageTags>template;web;api</PackageTags>
-    <PackageProjectUrl>https://github.com/Jaxelr/WebApiTemplate</PackageProjectUrl>
-    <IncludeContentInPack>true</IncludeContentInPack>
-    <IncludeBuildOutput>false</IncludeBuildOutput>
-    <ContentTargetFolders>Content</ContentTargetFolders>
-    <NoDefaultExcludes>true</NoDefaultExcludes>
-    <NoWarn>NU5128</NoWarn>
-    <PackageReleaseNotes>Upgrade to Dotnet 6</PackageReleaseNotes>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageType>Template</PackageType>
+		<IsPackable>true</IsPackable>
+		<Version>1.3.7</Version>
+		<PackageId>WebApiTemplate</PackageId>
+		<PackageCopyright>2022</PackageCopyright>
+		<Title>Dotnet Web Api Template</Title>
+		<Authors>Jaxel Rojas</Authors>
+		<Description>A minimal webapi template with controllers using Asp.Net 6</Description>
+		<PackageTags>template;web;api</PackageTags>
+		<PackageProjectUrl>https://github.com/Jaxelr/WebApiTemplate</PackageProjectUrl>
+		<IncludeContentInPack>true</IncludeContentInPack>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<ContentTargetFolders>Content</ContentTargetFolders>
+		<NoDefaultExcludes>true</NoDefaultExcludes>
+		<NoWarn>NU5128</NoWarn>
+		<PackageReleaseNotes>Upgrade to Dotnet 6</PackageReleaseNotes>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="Content\**" Exclude="**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\*.lock.json;**\node_modules\**;**\.vscode\**;*.gitkeep" />
-    <Compile Remove="**\*" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="Content\**" Exclude="**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\*.lock.json;**\node_modules\**;**\.vscode\**;*.gitkeep" />
+		<Compile Remove="**\*" />
+	</ItemGroup>
 </Project>
