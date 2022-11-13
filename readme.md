@@ -20,7 +20,8 @@ For templates targeting previous versions of dotnet use the version number inste
 
 | dotnet version | template version |
 | -- | -- |
-| 6.0 | latest |
+| 7.0 | latest |
+| 6.0 | 1.3.19 |
 | 5.0 | 1.2.2 |
 | 3.1 | 1.0.16 |
 
