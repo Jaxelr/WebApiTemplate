@@ -5,12 +5,12 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageType>Template</PackageType>
 		<IsPackable>true</IsPackable>
-		<Version>1.4.0</Version>
+		<Version>1.5.0</Version>
 		<PackageId>WebApiTemplate</PackageId>
-		<PackageCopyright>2022</PackageCopyright>
+		<PackageCopyright>2023</PackageCopyright>
 		<Title>Dotnet Web Api Template</Title>
 		<Authors>Jaxel Rojas</Authors>
-		<Description>A minimal webapi template with controllers using Asp.Net 6</Description>
+		<Description>A minimal webapi template with controllers using Asp.Net 7</Description>
 		<PackageTags>template;web;api</PackageTags>
 		<PackageProjectUrl>https://github.com/Jaxelr/WebApiTemplate</PackageProjectUrl>
 		<IncludeContentInPack>true</IncludeContentInPack>
