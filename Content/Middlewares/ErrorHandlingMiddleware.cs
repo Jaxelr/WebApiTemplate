@@ -3,15 +3,15 @@ using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using WebApiTemplate.Exceptions;
-using WebApiTemplate.Models;
 
 namespace WebApiTemplate.Middlewares;
 
 public class ErrorHandlingMiddleware
 {
     private readonly RequestDelegate next;
-    private const string ContentTypeJson = "application/json";
+    private const string ContentTypeProblemJson = "application/problem+json";
 
     public ErrorHandlingMiddleware(RequestDelegate next)
     {
@@ -32,25 +32,23 @@ public class ErrorHandlingMiddleware
 
     private static async Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
-        HttpStatusCode status;
+        var status = exception switch
+        {
+            NotFoundException _ => HttpStatusCode.NotFound,
+            BadRequestException _ => HttpStatusCode.BadRequest,
+            NotImplementedException _ => HttpStatusCode.NotImplemented,
+            _ => HttpStatusCode.InternalServerError,
+        };
 
-        var exceptionType = exception.GetType();
-        if (exceptionType == typeof(BadRequestException))
+        var problems = new ProblemDetails
         {
-            status = HttpStatusCode.BadRequest;
-        }
-        else if (exceptionType == typeof(NotFoundException))
-        {
-            status = HttpStatusCode.NotFound;
-        }
-        else
-        {
-            status = HttpStatusCode.InternalServerError;
-        }
+            Title = status.ToString(),
+            Status = (int) status,
+            Detail = exception.Message
+        };
 
-        var failedResponse = new FailedResponse(exception);
-        string result = JsonSerializer.Serialize(failedResponse);
-        context.Response.ContentType = ContentTypeJson;
+        string result = JsonSerializer.Serialize(problems);
+        context.Response.ContentType = ContentTypeProblemJson;
         context.Response.StatusCode = (int) status;
         await context.Response.WriteAsync(result);
         return;
