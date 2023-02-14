@@ -5,7 +5,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageType>Template</PackageType>
 		<IsPackable>true</IsPackable>
-		<Version>1.6.0</Version>
+		<Version>1.6.1</Version>
 		<PackageId>WebApiTemplate</PackageId>
 		<PackageCopyright>2023</PackageCopyright>
 		<Title>Dotnet Web Api Template</Title>
@@ -23,10 +23,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Include="Content\**" Exclude="**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\*.lock.json;**\node_modules\**;**\.vscode\**;*.gitkeep" />
+		<Content Include="Content\**" Exclude="**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\*.lock.json;**\node_modules\**;**\.vscode\**;*.gitkeep;**\MSBuild_Logs\**" />
 		<Compile Remove="**\*" />
-		<Compile Remove="MSBuild_Logs\**" />
-		<EmbeddedResource Remove="MSBuild_Logs\**" />
-		<None Remove="MSBuild_Logs\**" />
+		<Compile Remove="**\MSBuild_Logs\**" />
+		<EmbeddedResource Remove="**\MSBuild_Logs\**" />
+		<None Remove="**\MSBuild_Logs\**" />
 	</ItemGroup>
 </Project>
