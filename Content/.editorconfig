@@ -126,6 +126,7 @@ csharp_style_prefer_top_level_statements = true:silent
 csharp_style_expression_bodied_constructors = false:silent
 csharp_style_expression_bodied_lambdas = true:silent
 csharp_style_expression_bodied_local_functions = false:silent
+csharp_style_prefer_null_check_over_type_check = true:suggestion
 
 [*.{cs,csx,cake,vb}]
 # Naming Symbols
