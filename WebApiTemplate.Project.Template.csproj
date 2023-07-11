@@ -5,7 +5,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageType>Template</PackageType>
 		<IsPackable>true</IsPackable>
-		<Version>1.6.6</Version>
+		<Version>1.6.7</Version>
 		<PackageId>WebApiTemplate</PackageId>
 		<PackageCopyright>2023</PackageCopyright>
 		<Title>Dotnet Web Api Template</Title>
@@ -18,15 +18,13 @@
 		<ContentTargetFolders>Content</ContentTargetFolders>
 		<NoDefaultExcludes>true</NoDefaultExcludes>
 		<NoWarn>NU5128</NoWarn>
-		<PackageReleaseNotes>Upgrade to Dotnet 7</PackageReleaseNotes>
+		<PackageReleaseNotes>Upgrade dependencies to latest version, minor template refactors</PackageReleaseNotes>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<Content Include="Content\**" Exclude="**\.vs\**;**\bin\**;**\obj\**;**\*.user;**\*.lock.json;**\node_modules\**;**\.vscode\**;*.gitkeep;**\MSBuild_Logs\**" />
 		<Compile Remove="**\*" />
-		<Compile Remove="**\MSBuild_Logs\**" />
-		<EmbeddedResource Remove="**\MSBuild_Logs\**" />
-		<None Remove="**\MSBuild_Logs\**" />
+		<None Remove="**\MSBuild_Logs\**;**\bin\**;**\obj\**" />
 	</ItemGroup>
 </Project>
