@@ -79,6 +79,7 @@ else
 {
     //Note: Comment as needed.
     app.UseHttpsRedirection();
+    app.UseHsts();
 }
 
 app.UseCors(settings.Policy);
