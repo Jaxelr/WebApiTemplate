@@ -6,13 +6,13 @@ This template was created in order to facilitate the creation of a dotnet WebApi
 
 ## Installation
 
-Make sure the dotnetcore sdk is installed by running `dotnet --version` on a console.
+Make sure the dotnet sdk is installed by running `dotnet --version` on a console.
 
 For installation of latest version, run:
 
 `dotnet new -i  "WebApiTemplate::*" --nuget-source https://www.myget.org/F/webapitemplate/api/v3/index.json`
 
-Currently it lives on the myget source only.
+Currently it lives on the myget source only, since it has such a generic name.
 
 ### Previous versions
 
@@ -20,7 +20,8 @@ For templates targeting previous versions of dotnet use the version number inste
 
 | dotnet version | template version |
 | -- | -- |
-| 7.0 | latest |
+| 8.0 | latest |
+| 7.0 | 1.6.9 |
 | 6.0 | 1.3.19 |
 | 5.0 | 1.2.2 |
 | 3.1 | 1.0.16 |
@@ -38,7 +39,7 @@ Where Projectname is the name given to the api solution.
 The `appsettings.json` file includes following configurable props:
 
 * AuthorizationServer - used to configure the Authorization server were the service will revise the token / scope information. 
-* ConnectrionString - used to map from a config file into the startup class the connection information needed to connect to a SQL database.
+* ConnectionString - used to map from a config file into the startup class the connection information needed to connect to a SQL database.
 
 ### Swagger
 
