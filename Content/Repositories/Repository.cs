@@ -2,14 +2,11 @@
 
 namespace WebApiTemplate.Repositories;
 
-public class Repository : IRepository
+public class Repository(DbConnection connection) : IRepository
 {
-    private readonly DbConnection connection;
-
-    public Repository(DbConnection connection)
-    {
-        this.connection = connection;
-    }
+#pragma warning disable RCS1213 // Remove unused member declaration.
+    private readonly DbConnection connection = connection;
+#pragma warning restore RCS1213 // Remove unused member declaration.
 
     public string MakeHello(string name) => $"Hello world: {name}";
 }

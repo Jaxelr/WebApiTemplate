@@ -7,15 +7,10 @@ using WebApiTemplate.Exceptions;
 
 namespace WebApiTemplate.Middlewares;
 
-public class ErrorHandlingMiddleware
+public class ErrorHandlingMiddleware(RequestDelegate next)
 {
-    private readonly RequestDelegate next;
+    private readonly RequestDelegate next = next;
     private const string ContentTypeProblemJson = "application/problem+json";
-
-    public ErrorHandlingMiddleware(RequestDelegate next)
-    {
-        this.next = next;
-    }
 
     public async Task Invoke(HttpContext context)
     {
