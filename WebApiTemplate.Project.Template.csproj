@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageType>Template</PackageType>
 		<IsPackable>true</IsPackable>
-		<Version>1.6.9</Version>
+		<Version>1.7.0</Version>
 		<PackageId>WebApiTemplate</PackageId>
 		<PackageCopyright>2023</PackageCopyright>
 		<Title>Dotnet Web Api Template</Title>
@@ -18,7 +18,7 @@
 		<ContentTargetFolders>Content</ContentTargetFolders>
 		<NoDefaultExcludes>true</NoDefaultExcludes>
 		<NoWarn>NU5128</NoWarn>
-		<PackageReleaseNotes>Upgrade dependencies to latest version, minor template refactors</PackageReleaseNotes>
+		<PackageReleaseNotes>Upgrade to dotnet 8</PackageReleaseNotes>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
