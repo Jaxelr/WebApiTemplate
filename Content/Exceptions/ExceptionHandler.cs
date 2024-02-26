@@ -1,31 +1,20 @@
 ﻿using System;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebApiTemplate.Exceptions;
 
-namespace WebApiTemplate.Middlewares;
+namespace WebApiTemplate.Exceptions;
 
-public class ErrorHandlingMiddleware(RequestDelegate next)
+public class ExceptionHandler : IExceptionHandler
 {
-    private readonly RequestDelegate next = next;
     private const string ContentTypeProblemJson = "application/problem+json";
 
-    public async Task Invoke(HttpContext context)
+    public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {
-        try
-        {
-            await next(context);
-        }
-        catch (Exception ex)
-        {
-            await HandleExceptionAsync(context, ex);
-        }
-    }
 
-    private static async Task HandleExceptionAsync(HttpContext context, Exception exception)
-    {
         int status = exception switch
         {
             NotFoundException _ => StatusCodes.Status404NotFound,
@@ -42,9 +31,11 @@ public class ErrorHandlingMiddleware(RequestDelegate next)
         };
 
         string result = JsonSerializer.Serialize(problems);
-        context.Response.ContentType = ContentTypeProblemJson;
-        context.Response.StatusCode = status;
-        await context.Response.WriteAsync(result);
-        return;
+        httpContext.Response.ContentType = ContentTypeProblemJson;
+        httpContext.Response.StatusCode = status;
+
+        await httpContext.Response.WriteAsync(result, cancellationToken: cancellationToken);
+
+        return true;
     }
 }

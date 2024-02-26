@@ -8,7 +8,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using WebApiTemplate.Middlewares;
+using WebApiTemplate.Exceptions;
 using WebApiTemplate.Models;
 using WebApiTemplate.Repositories;
 
@@ -34,6 +34,8 @@ builder.Services.AddHealthChecks()
         .AddCheck(settings.HealthDefinition.Name,
         () => HealthCheckResult.Healthy(settings.HealthDefinition.HealthyMessage),
         tags: settings.HealthDefinition.Tags);
+
+builder.Services.AddExceptionHandler<ExceptionHandler>();
 
 builder.Services.AddControllers();
 
@@ -85,10 +87,10 @@ else
 app.UseCors(settings.Policy);
 app.UseRouting();
 
+app.UseExceptionHandler();
+
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.MapControllers();
 
