@@ -5,7 +5,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageType>Template</PackageType>
 		<IsPackable>true</IsPackable>
-		<Version>1.8.0</Version>
+		<Version>1.8.1</Version>
 		<PackageId>WebApiTemplate</PackageId>
 		<PackageCopyright>2024</PackageCopyright>
 		<Title>Dotnet Web Api Template</Title>
