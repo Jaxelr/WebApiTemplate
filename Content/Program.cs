@@ -23,7 +23,7 @@ builder.Services.AddControllers();
 
 #if !DEBUG
 
-builder.UseAuth(settings);
+builder.AddAuth(settings);
 
 #endif
 
