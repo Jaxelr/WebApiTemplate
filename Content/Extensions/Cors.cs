@@ -23,7 +23,6 @@ public static class CorsExtension
         return builder;
     }
 
-
     public static WebApplication UseCors(this WebApplication app, AppSettings settings)
     {
         app.UseCors(settings.Policy);
