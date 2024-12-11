@@ -1,5 +1,5 @@
-﻿using System.Data.SqlClient;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.DependencyInjection;
 using WebApiTemplate.Models;
 using WebApiTemplate.Repositories;
