@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageType>Template</PackageType>
 		<IsPackable>true</IsPackable>
-		<Version>1.8.5</Version>
+		<Version>1.9.0</Version>
 		<PackageId>WebApiTemplate</PackageId>
 		<PackageCopyright>2024</PackageCopyright>
 		<Title>Dotnet Web Api Template</Title>
 		<Authors>Jaxel Rojas</Authors>
-		<Description>A simplistic webapi template with controllers using Asp.Net 8</Description>
+		<Description>A simplistic webapi template with controllers using Asp.Net 9</Description>
 		<PackageTags>template;web;api</PackageTags>
 		<PackageProjectUrl>https://github.com/Jaxelr/WebApiTemplate</PackageProjectUrl>
 		<IncludeContentInPack>true</IncludeContentInPack>
@@ -18,7 +18,7 @@
 		<ContentTargetFolders>Content</ContentTargetFolders>
 		<NoDefaultExcludes>true</NoDefaultExcludes>
 		<NoWarn>NU5128</NoWarn>
-		<PackageReleaseNotes>Upgrade package dependencies to latest version</PackageReleaseNotes>
+		<PackageReleaseNotes>Upgrade to dotnet 9</PackageReleaseNotes>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
