@@ -18,13 +18,16 @@ Currently it lives on the myget source only, since it has such a generic name.
 
 For templates targeting previous versions of dotnet use the version number instead of `*` on the installation command:
 
-| dotnet version | template version |
-| -- | -- |
-| 8.0 | latest |
-| 7.0 | 1.6.9 |
-| 6.0 | 1.3.19 |
-| 5.0 | 1.2.2 |
-| 3.1 | 1.0.16 |
+### Versions:
+
+| dotnet | template |
+| :--    | :--      |
+| 9.0    | latest   |
+| 8.0    | 1.8.5    |
+| 7.0    | 1.6.9    |
+| 6.0    | 1.3.19   |
+| 5.0    | 1.2.2    |
+| 3.1    | 1.0.16   |
 
 ## Usage
 
