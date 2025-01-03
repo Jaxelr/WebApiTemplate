@@ -5,9 +5,9 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageType>Template</PackageType>
 		<IsPackable>true</IsPackable>
-		<Version>1.9.0</Version>
+		<Version>1.9.1</Version>
 		<PackageId>WebApiTemplate</PackageId>
-		<PackageCopyright>2024</PackageCopyright>
+		<PackageCopyright>2025</PackageCopyright>
 		<Title>Dotnet Web Api Template</Title>
 		<Authors>Jaxel Rojas</Authors>
 		<Description>A simplistic webapi template with controllers using Asp.Net 9</Description>
