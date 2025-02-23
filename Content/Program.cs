@@ -46,7 +46,7 @@ else
 app.UseCors(settings);
 app.UseRouting();
 
-app.UseExceptionHandler();
+app.UseExceptionHandler(_ => { });
 app.UseAuth();
 
 app.MapControllers();
