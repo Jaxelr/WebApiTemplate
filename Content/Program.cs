@@ -19,11 +19,10 @@ builder.Services.AddExceptionHandler<ExceptionHandler>();
 
 builder.Services.AddControllers();
 
-#if !DEBUG
-
-builder.AddAuth(settings);
-
-#endif
+if (builder.Environment.IsProduction())
+{
+    builder.AddAuth(settings);
+}
 
 builder.AddLogging();
 builder.AddSwagger(settings);
