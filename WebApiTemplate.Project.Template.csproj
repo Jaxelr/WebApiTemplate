@@ -5,7 +5,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageType>Template</PackageType>
 		<IsPackable>true</IsPackable>
-		<Version>1.9.5</Version>
+		<Version>1.9.6</Version>
 		<PackageId>WebApiTemplate</PackageId>
 		<PackageCopyright>2025</PackageCopyright>
 		<Title>Dotnet Web Api Template</Title>
@@ -18,7 +18,7 @@
 		<ContentTargetFolders>Content</ContentTargetFolders>
 		<NoDefaultExcludes>true</NoDefaultExcludes>
 		<NoWarn>NU5128</NoWarn>
-		<PackageReleaseNotes>Upgrade to dotnet 9</PackageReleaseNotes>
+		<PackageReleaseNotes>Upgrade ms package dependencies to 9.0.6</PackageReleaseNotes>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
