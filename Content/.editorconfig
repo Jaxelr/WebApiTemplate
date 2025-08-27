@@ -8,6 +8,7 @@ indent_size = 4
 indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
+tab_width = 4
 
 # Visual Studio
 [*.sln]
@@ -218,4 +219,3 @@ dotnet_naming_rule.interface_types_must_be_prefixed_with_i.style = prefix_interf
 dotnet_diagnostic.RCS1090.severity = none
 dotnet_diagnostic.IDE0130.severity = none
 dotnet_diagnostic.RCS1213.severity = none
-tab_width = 4
