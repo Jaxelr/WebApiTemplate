@@ -5,9 +5,9 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageType>Template</PackageType>
 		<IsPackable>true</IsPackable>
-		<Version>1.11.0</Version>
+		<Version>1.12.0</Version>
 		<PackageId>WebApiTemplate</PackageId>
-		<PackageCopyright>2025</PackageCopyright>
+		<PackageCopyright>2026</PackageCopyright>
 		<Title>Dotnet Web Api Template</Title>
 		<Authors>Jaxel Rojas</Authors>
 		<Description>A simplistic webapi template with controllers using Asp.Net 10</Description>
@@ -18,7 +18,7 @@
 		<ContentTargetFolders>Content</ContentTargetFolders>
 		<NoDefaultExcludes>true</NoDefaultExcludes>
 		<NoWarn>NU5128</NoWarn>
-		<PackageReleaseNotes>Upgrade to dotnet 10</PackageReleaseNotes>
+		<PackageReleaseNotes>Upgrade package dependencies to their latest versions</PackageReleaseNotes>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
