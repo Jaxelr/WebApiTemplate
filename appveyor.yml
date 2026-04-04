@@ -16,7 +16,7 @@ install:
 before_build:
   - cmd: dotnet --version
 build_script:
-  - cmd: dotnet publish ./Content/WebApiTemplate.sln
+  - cmd: dotnet publish ./Content/WebApiTemplate.sln -p:ContinuousIntegrationBuild=true
 after_build:
   - cmd: dotnet pack WebApiTemplate.Project.Template.csproj
 artifacts:
