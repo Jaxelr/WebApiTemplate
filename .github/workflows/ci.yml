@@ -19,7 +19,13 @@ jobs:
         dotnet-version: 10.0.x
     - name: Restore dependencies
       run: dotnet restore
+    - name: Restore application dependencies
+      working-directory: Content
+      run: dotnet restore WebApiTemplate.sln
     - name: Build
       run: dotnet build --no-restore
+    - name: Publish application
+      working-directory: Content
+      run: dotnet publish WebApiTemplate.sln --no-restore -p:ContinuousIntegrationBuild=true
     - name: Test
       run: dotnet test --no-build --verbosity normal
