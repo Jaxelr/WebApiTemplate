@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net10.0</TargetFramework>
+		<TargetFramework>net11.0</TargetFramework>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageType>Template</PackageType>
 		<IsPackable>true</IsPackable>
@@ -10,7 +10,7 @@
 		<PackageCopyright>2026</PackageCopyright>
 		<Title>Dotnet Web Api Template</Title>
 		<Authors>Jaxel Rojas</Authors>
-		<Description>A simplistic webapi template with controllers using Asp.Net 10</Description>
+		<Description>A simplistic webapi template with controllers using Asp.Net 11</Description>
 		<PackageTags>template;web;api</PackageTags>
 		<PackageProjectUrl>https://github.com/Jaxelr/WebApiTemplate</PackageProjectUrl>
 		<IncludeContentInPack>true</IncludeContentInPack>
